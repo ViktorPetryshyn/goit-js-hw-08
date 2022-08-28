@@ -15,7 +15,6 @@ function getDataFromForm(e) {
   setDataToStorage(targetName, targetValue);
 }
 function setDataToStorage(name, value) {
-  console.log(newFeedback);
   newFeedback[name] = value;
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(newFeedback));
 }
