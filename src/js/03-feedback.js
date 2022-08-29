@@ -1,7 +1,7 @@
 import throttle from 'lodash.throttle';
 
 const FEEDBACK_KEY = 'feedback-form-state';
-let newFeedback = {};
+let newFeedback = { email: '', message: '' };
 
 const formEl = document.querySelector('.feedback-form');
 formEl.addEventListener('submit', useFormSubmit);
@@ -27,7 +27,8 @@ function setDataFromForm() {
 }
 function useFormSubmit(e) {
   e.preventDefault();
-  console.log(newFeedback);
+  console.log(JSON.parse(localStorage.getItem(FEEDBACK_KEY)));
   localStorage.removeItem(FEEDBACK_KEY);
+  newFeedback = { email: '', message: '' };
   e.target.reset();
 }
